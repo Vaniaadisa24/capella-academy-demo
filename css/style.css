@@ -1,0 +1,134 @@
+:root{
+  --mainblue:#2E86C1; --mainblue-dark:#1F5F8B; --tiporange:#F4A460;
+  --sectionbg:#D6EAF8; --tipbg:#FEF5E7; --darktext:#1A1A2E; --medtext:#34495E;
+  --line:#E4E8EC; --bg:#F4F6F8; --card:#FFFFFF; --muted:#8A94A0;
+  --radius:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--darktext);font-size:14px;line-height:1.5}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:14px;color:var(--darktext);width:100%;padding:9px 11px;border:1px solid #CDD5DD;border-radius:var(--radius);background:#fff}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--mainblue);box-shadow:0 0 0 3px rgba(46,134,193,.12)}
+textarea{resize:vertical;min-height:70px}
+label{display:block;font-size:12px;color:var(--medtext);margin-bottom:5px}
+.row{display:flex;gap:12px}
+.row>*{flex:1}
+
+#app{display:flex;min-height:100vh}
+#sidebar{width:210px;flex-shrink:0;background:#fff;border-right:1px solid var(--line);padding:16px 12px;display:flex;flex-direction:column;gap:3px;transition:margin-left .2s}
+#sidebar.hidden{margin-left:-210px}
+.brand{display:flex;align-items:center;gap:9px;padding:6px 8px 16px}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:var(--mainblue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.brand span{font-weight:600;font-size:15px}
+.navgroup{font-size:11px;color:var(--muted);letter-spacing:.4px;padding:12px 8px 5px}
+.navitem{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:7px;color:var(--medtext);font-size:13.5px;cursor:pointer}
+.navitem:hover{background:#F0F4F8}
+.navitem.active{background:var(--sectionbg);color:var(--mainblue-dark);font-weight:500}
+.navitem .ic{width:18px;text-align:center}
+
+details.lib>summary{cursor:pointer;list-style:none}
+details.lib>summary::-webkit-details-marker{display:none}
+details.lib .caret{display:inline-block;transition:transform .15s;color:var(--muted);font-size:11px;flex-shrink:0}
+details.lib[open]>summary .caret{transform:rotate(90deg)}
+
+@media (max-width:640px){
+  #sidebar{position:fixed;top:0;left:0;bottom:0;z-index:50;box-shadow:2px 0 14px rgba(0,0,0,.18)}
+  #sidebar.hidden{margin-left:-210px;box-shadow:none}
+}
+
+#main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid var(--line);background:#fff}
+.topbar h1{font-size:17px;font-weight:600}
+.iconbtn{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--medtext)}
+.iconbtn:hover{background:#F0F4F8}
+.content{padding:24px;flex:1}
+
+.btn{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:var(--radius);font-size:13.5px;background:#fff;border:1px solid #CDD5DD;color:var(--medtext)}
+.btn:hover{background:#F0F4F8}
+.btn.primary{background:var(--mainblue);border-color:var(--mainblue);color:#fff}
+.btn.primary:hover{background:var(--mainblue-dark)}
+.btn.danger{color:#B03A2E;border-color:#E6B0AA}
+.btn.danger:hover{background:#FDEDEC}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.stat{background:#F7F9FB;border-radius:var(--radius);padding:12px 14px}
+.stat .lbl{font-size:12px;color:var(--medtext);margin-bottom:3px}
+.stat .val{font-size:22px;font-weight:600}
+.stat .val small{font-size:14px;color:var(--muted);font-weight:400}
+.grid{display:grid;gap:12px}
+.avatar{border-radius:50%;background:var(--sectionbg);color:var(--mainblue-dark);display:flex;align-items:center;justify-content:center;font-weight:600;flex-shrink:0}
+.bar{height:7px;background:#EAEEF2;border-radius:4px;overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--mainblue)}
+.pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;background:#EAEEF2;color:var(--medtext)}
+.pill.done{background:#E8F6EF;color:#1E8449}
+.pill.prog{background:var(--tipbg);color:#B9770E}
+.statustoggle{cursor:pointer;user-select:none}
+.statustoggle:hover{filter:brightness(.95)}
+.muted{color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:40px 20px}
+.empty .ic{font-size:34px;opacity:.4;margin-bottom:8px}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -18px;padding:0 18px}
+table.list{width:100%;border-collapse:collapse}
+table.list th{text-align:left;font-size:11px;color:var(--muted);letter-spacing:.3px;font-weight:500;padding:0 8px 8px;border-bottom:1px solid var(--line)}
+table.list td{padding:12px 8px;border-bottom:1px solid var(--line);font-size:13.5px}
+table.list tr:last-child td{border-bottom:none}
+table.list tr.click:hover{background:#F7F9FB;cursor:pointer}
+a.link{color:var(--mainblue);cursor:pointer;text-decoration:none}
+a.link:hover{text-decoration:underline}
+.sectitle{font-size:13px;font-weight:600;margin:0 0 10px}
+.divider{border-top:1px solid var(--line);margin:16px 0}
+
+.overlay{position:fixed;inset:0;background:rgba(26,26,46,.45);display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto;z-index:50}
+.modal{background:#fff;border-radius:12px;width:100%;max-width:520px;padding:22px 24px}
+.modal.wide{max-width:680px}
+.modal h2{font-size:16px;font-weight:600;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+.modal .x{color:var(--muted);font-size:20px;cursor:pointer}
+.field{margin-bottom:13px}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+/* --- koreksi per nomor --- */
+.korblok{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:#FBFCFD}
+.numgrid{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.numbtn{width:38px;height:38px;border-radius:9px;border:1px solid #CDD5DD;background:#fff;color:var(--medtext);font-size:13.5px;font-weight:500;cursor:pointer;padding:0}
+.numbtn:hover{border-color:var(--mainblue)}
+.numbtn.wrong{background:#FDEDEC;border-color:#E6A9A2;color:#C0392B;font-weight:600}
+.numbtn.noted{background:var(--sectionbg);border-color:#9EC5E3;color:var(--mainblue-dark)}
+.korlist{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.korrow{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.korrow b{font-size:12.5px;color:#C0392B;min-width:52px}
+.korrow select{flex:0 0 150px;width:auto}
+.korrow input{flex:1 1 160px}
+/* catrow: grid supaya di layar HP tetap satu baris (nomor · catatan · hapus) */
+.catrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:7px}
+.catrow select{width:auto;min-width:86px}
+.korsum{margin-top:10px;font-size:13px;color:var(--medtext)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--darktext);color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;z-index:100;opacity:0;transition:opacity .2s}
+.toast.show{opacity:1}
+
+#printArea{display:none}
+.report{max-width:640px;margin:0 auto;background:#fff;color:#1A1A2E}
+.report .rhead{background:#2E86C1;padding:20px 26px;color:#fff}
+.report .rhead .sub{font-size:12px;color:#EAF2FB;letter-spacing:.5px}
+.report .rhead .ttl{font-size:19px;font-weight:600;margin-top:4px}
+.report .rrule{height:3px;background:#F4A460}
+.report .rbody{padding:22px 26px}
+.report h3{font-size:13px;font-weight:600;color:#2E86C1;margin:0 0 6px}
+.report p{font-size:13px;line-height:1.75;margin:0 0 16px}
+.report ul{margin:0 0 18px;padding-left:18px;font-size:13px;line-height:1.85}
+.report ul ul{margin:2px 0 8px;padding-left:16px;line-height:1.7}
+.report ul ul li{color:#34495E}
+.report table.fee{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:18px}
+.report table.fee td{border:1px solid #AEC9E3;padding:7px 10px}
+.report table.fee .hd{background:#D6EAF8}
+.report .rcorner{font-size:10px;color:#AEB4BB;text-align:right;margin-top:26px;border-top:1px solid #EEF1F4;padding-top:8px}
+.report .info{width:100%;font-size:12.5px;color:#34495E;margin-bottom:16px}
+.report .info td{padding:2px 0}
+.report .info b{color:#1A1A2E;font-weight:600}
+/* cegah teks terpotong di batas halaman saat export PDF / print */
+.report li,.report p,.report tr,.report h3,.report .info,.report .rcorner{page-break-inside:avoid;break-inside:avoid}
+
+@media print{
+  body *{visibility:hidden}
+  #printArea,#printArea *{visibility:visible}
+  #printArea{display:block!important;position:absolute;left:0;top:0;width:100%}
+  .report{border:none}
+}
