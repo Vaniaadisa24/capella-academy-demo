@@ -63,6 +63,10 @@ python -m http.server 8000
 On first load the app seeds the fictional sample data (`js/demo-seed.js`) into
 `localStorage`. Clear site data in DevTools to reset back to the sample set.
 
+## Live demo
+
+Deployed via GitHub Pages: https://vaniaadisa24.github.io/capella-academy-demo/
+
 ## Data & privacy
 
 The sample data is invented. To run against real data you would paste your own
